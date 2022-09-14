@@ -63,6 +63,7 @@ export const oauthLoginCallback = async (req, res, next) => {
     // as the idToken for Logout
     req.session.user = user;
     req.session.data = data;
+    req.session.accessToken = accessToken;
     req.session.idTokenPayload = getPayloadOfIdToken(idToken);
     req.session.idToken = idToken;
 
@@ -73,10 +74,11 @@ export const oauthLoginCallback = async (req, res, next) => {
 };
 
 export const getUser = (req, res) => {
-  const { data, user, idTokenPayload = {} } = req.session;
+  const { data, user, accessToken, idTokenPayload = {} } = req.session;
   return res.render('pages/data', {
     user,
     data,
+    accessToken,
     eIDASLevel: idTokenPayload.acr,
     userLink: 'https://github.com/france-connect/identity-provider-example/blob/master/database.csv',
     dataLink: 'https://github.com/france-connect/data-provider-example/blob/master/database.csv',

@@ -13,6 +13,16 @@
       <h1 class="title">Voici les données que nous avons récupérées pour vous avec FranceConnect</h1>
       <% } %>
 
+      <% if (locals.accessToken) { %>
+        <pre>
+          <p><strong><i>Access token</i></strong></p>
+          <code id="json-output" class="json">
+<%- JSON.stringify(locals.accessToken, null, 2) %>
+          </code>
+        </pre>
+
+      <% } %>
+
       <% if (locals.user) { %>
       <pre>
         <p><strong><i>Corps des données d'identité:</i></strong></p>
