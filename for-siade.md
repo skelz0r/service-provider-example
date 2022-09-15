@@ -8,9 +8,15 @@
 6. Cliquer sur "Continuer sur FSPublic"
 
 De là vous devriez voir un token d'accès, vous pouvez executer le code suivant
-pour vérifier que tout est OK:
+pour vérifier que tout est OK depuis `siade`
 
 ```ruby
 token='token'
 org = FranceConnect::DataFetcherThroughAccessToken.call(params: { token: token })
+```
+
+Ou taper sur la sandbox directement:
+
+```sh
+./test_api_part.sh token
 ```
